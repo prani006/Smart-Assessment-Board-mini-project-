@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: smart-assessment-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NODE_VERSION
+        value: 18.0.0
