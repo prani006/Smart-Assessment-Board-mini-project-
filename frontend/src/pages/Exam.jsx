@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../api/config';
 import { AuthContext } from '../context/AuthContext';
 import { Clock, ChevronRight, ChevronLeft, Send, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -63,7 +64,7 @@ const Exam = () => {
                 selectedOption: selectedAnswers[q._id] || ''
             }));
             const res = await api.post('/results/submit', {
-                studentId: user._id,
+                studentId: user.id || user._id,
                 subject: category ? `${subject} - ${category}` : subject,
                 answers
             });

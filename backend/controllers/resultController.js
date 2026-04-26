@@ -14,6 +14,7 @@ const submitResult = async (req, res) => {
             if (isCorrect) marks++;
             return {
                 questionId: ans.questionId,
+                questionText: question.questionText,
                 selectedOption: ans.selectedOption,
                 correctAnswer: question.correctAnswer,
                 isCorrect
